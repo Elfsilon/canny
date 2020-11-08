@@ -3,7 +3,7 @@ package grayscale
 import (
 	"image"
 	"image/color"
-	"lab4/lib/utils"
+	"github.com/Elfsilon/canny/lib/utils"
 )
 
 // ComputeAVG ...

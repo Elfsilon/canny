@@ -1,8 +1,8 @@
 package grad
 
 import (
+	"github.com/Elfsilon/canny/lib/utils"
 	"image"
-	"lab4/lib/utils"
 )
 
 func gradAnalysis(img *image.Gray, op *Operator) ([][]float64, [][]uint8) {

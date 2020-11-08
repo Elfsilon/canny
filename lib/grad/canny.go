@@ -2,9 +2,9 @@ package grad
 
 import (
 	// "fmt"
+	"github.com/Elfsilon/canny/lib/utils"
 	"image"
 	"image/color"
-	"lab4/lib/utils"
 )
 
 // Canny operator implementation
