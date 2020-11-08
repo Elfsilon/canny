@@ -6,7 +6,7 @@ import (
 	"math"
 )
 
-// Operator ...
+// Operator stuct
 type Operator struct {
 	MGx [3][3]float64
 	MGy [3][3]float64
