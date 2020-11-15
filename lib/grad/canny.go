@@ -12,7 +12,7 @@ func Canny(img *image.Gray, op *Operator, upThresold, downThresold float64) *ima
 	gradMat, angMat := gradAnalysis(img, op)
 	suppresed := nonmaxSuppression(gradMat, angMat)
 	thresolded := doubleThresold(suppresed, downThresold, upThresold)
-	tracked := blobAnalysis(thresolded, 255, 35, 0)
+	tracked := blobAnalysis(thresolded, 255, 127, 0)
 
 	resImage, width, height := utils.CreateImage(img)
 	for x := 1; x < width-1; x++ {

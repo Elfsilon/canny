@@ -7,8 +7,12 @@ func blobAnalysis(mat [][]float64, max, high, clear float64) [][]float64 {
 			if mat[y][x] == max {
 				continue
 			}
-			if mat[y][x] == high && !isTouch(mat, x, y, max) {
-				mat[y][x] = clear
+			if mat[y][x] == high {
+				if !isTouch(mat, x, y, max) {
+					mat[y][x] = clear
+				} else {
+					mat[y][x] = max
+				}
 			}
 		}
 	}
