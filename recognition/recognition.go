@@ -59,10 +59,23 @@ type variant struct {
 }
 
 // Determine ...
-func (r *Recognizer) Determine(img *image.Gray) (int, *image.Gray) {
+func (r *Recognizer) Determine(img *image.Gray, method string) (int, *image.Gray) {
 	var variants []variant
 	for _, baseimg := range r.base {
-		k, err := utils.Compare(&baseimg.img, img)
+		var k float64
+		var err error
+
+		switch method {
+		case "euclidean":
+			k, err = utils.CompareEuclid(&baseimg.img, img)
+		case "manhattan":
+			k, err = utils.CompareManhattan(&baseimg.img, img)
+		case "ncc":
+			k, err = utils.CompareNCC(&baseimg.img, img)
+		default:
+			k, err = utils.Compare(&baseimg.img, img)
+		}
+
 		if err != nil {
 			log.Println(err)
 		}
